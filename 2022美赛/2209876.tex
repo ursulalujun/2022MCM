@@ -1,0 +1,702 @@
+%% -----------------------------------
+%%
+%%
+%% Copyright (C)
+%%     2022     by latexstudio.net
+%%
+%%
+\documentclass[12pt]{article}
+
+%=============setting，设置自己的队号和选题============
+\gdef\MCMcontrol{\textcolor{red}{2209876}} %改队号！
+\newcommand{\problem}{\textcolor{red}{C}} %定选题！
+
+\newcommand{\control}{\MCMcontrol}
+\newcommand{\team}{Team \#\ \MCMcontrol}
+\newcommand{\headset}{{\the\year}\\MCM/ICM\\Summary Sheet}
+
+%==========定义摘要，摘要的标题可自定义===================
+\renewenvironment{abstract}[1]{%
+        \small
+        \begin{center}%
+          {\large\bfseries #1\vspace{-.5em}}%
+        \end{center}}
+      {}
+\newcommand\keywords[1]{%
+    \begingroup
+    \par
+    \noindent\textbf{Keywords:} #1\par
+    \endgroup
+}
+
+%==========目录居中的重定义===================
+\makeatletter
+\renewcommand\tableofcontents{%
+    \centerline{\normalfont\Large\bfseries\contentsname%
+    \@mkboth{%
+    \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+    \vskip 3ex%
+    \@starttoc{toc}%
+    \thispagestyle{fancy}
+    \clearpage}
+\makeatother
+
+\usepackage[toc, page, title, titletoc, header]{appendix}
+\usepackage{graphicx}
+\graphicspath{{figures/}{img/}}
+
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{newtxtext}
+\usepackage{palatino}
+\usepackage{lipsum} %随意输出文字
+\usepackage{indentfirst} %首行缩进两字符
+ \setlength{\parindent}{2em}
+\usepackage{booktabs} %三线表
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{makecell}
+\usepackage[table]{xcolor}
+\newcommand{\tableincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\usepackage{subfig} %多个子图
+\usepackage{boondox-cal} %花体
+\newtheorem{Theorem}{Theorem}[section]
+\newtheorem{Lemma}[Theorem]{Lemma}
+\newtheorem{Corollary}[Theorem]{Corollary}
+\newtheorem{Proposition}[Theorem]{Proposition}
+\newtheorem{Definition}[Theorem]{Definition}
+\newtheorem{Example}[Theorem]{Example}
+
+%==========设置代码格式===================
+\usepackage{xcolor}
+\usepackage{listings}
+\definecolor{grey}{rgb}{0.8,0.8,0.8}
+\definecolor{darkgreen}{rgb}{0,0.3,0}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\def\lstbasicfont{\fontfamily{pcr}\selectfont\footnotesize}
+\lstset{%
+    numbers=left,
+    numberstyle=\small,%
+    showstringspaces=false,
+    showspaces=false,%
+    tabsize=4,%
+    frame=lines,%
+    basicstyle={\footnotesize\lstbasicfont},%
+    keywordstyle=\color{darkblue}\bfseries,%
+    identifierstyle=,%
+    commentstyle=\color{darkgreen},%\itshape,%
+    stringstyle=\color{black}%
+}
+\lstloadlanguages{C,C++,Java,Matlab,Mathematica}
+
+\usepackage[colorlinks, linkcolor=black, citecolor=black]{hyperref}
+\usepackage{geometry}
+\geometry{a4paper, margin = 1.2in}
+
+%==========设置页眉格式===================
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\small\sffamily \team}
+\rhead{\small\sffamily Page \thepage\ of \pageref{LastPage}}
+\setlength\parskip{.5\baselineskip}
+
+\usepackage{mathptmx}% newtxtext
+\usepackage{lipsum}
+\title{The \LaTeX{} Template for MCM Version 1}
+\author{\small \href{http://www.latexstudio.net/}
+  {\includegraphics[width=7cm]{mcmthesis-logo}}}
+\date{\today}
+
+\begin{document}
+%==========Summary sheet 格式===================
+\thispagestyle{empty}
+\begingroup
+  \setlength{\parindent}{0pt}
+     \begin{minipage}[t]{0.33\linewidth}
+     \bfseries\centering%
+      Problem Chosen\\[0.7pc]
+      {\Huge\textbf{\problem}}\\[2.8pc]
+     \end{minipage}%
+     \begin{minipage}[t]{0.33\linewidth}
+      \centering%
+      \textbf{\headset}%
+     \end{minipage}%
+     \begin{minipage}[t]{0.33\linewidth}
+      \centering\bfseries%
+       Team Control Number\\[0.7pc]
+      {\Huge\textbf{\MCMcontrol}}\\[2.8pc]
+     \end{minipage}\par
+  \rule{\linewidth}{0.8pt}\par
+  %\textbf{\headset}%
+  \par
+  \endgroup
+
+  \bigskip
+
+\centerline{\Large\bfseries Title} %%%改题目！
+
+\begin{abstract}{Summary} %写Summary！
+
+“If you do not analyze before investment, you have the same success investment as you do in a poker game if you bet without looking at your cards,” said Peter Lynch. To provide the best trading strategy and gain a maximum return, we dig into price data and establish the price trends prediction model and trading strategy model.
+
+First,  we establish
+
+Second, we build 
+
+Third, we construct 
+
+Finally, we create 
+
+Our model passes the model test and sensitivity analysis, indicating that the model has strong stability and can be widely used in exploring...
+
+\keywords{Gold; bitcoin; prediction}
+\end{abstract}
+
+\newpage
+\tableofcontents
+
+%==========设置正文格式===================
+\section{Introduction}
+\subsection{Background}
+Generally, volatility measures the fluctuation of certain phenomena over a period of time. In economics, volatility is the fluctuation of asset prices, which reflects the level of risk in financial assets \cite{1}. Greater volatility means a higher yield rate while a higher risk. To maximize the yield, the forecast of volatility is necessary.  
+
+Gold and Bitcoin are two representative assets that are worth investing in. As Karl Marx pointed out in \emph{Das Kapital}, the currency is gold naturally. Gold is a kind of precious metal with currency, commodity and financial attributes that no other assets can be unparalleled \cite{2}. Therefore, numerous investors invest in gold. Bitcoin is a cryptocurrency that was first proposed by Nakamoto in 2009.  Since the birth of bitcoin, the bitcoin market has developed rapidly and attracted a large number of investors \cite{3}.
+
+According to the literature, we divide mainly predictive methods into three categories. The first is traditional financial time series analysis based on statistics, including the AR model, ARIMA model, ARCH model, and GARCH model. Under a specific environment, they effectively describe volatility, however, each of them has limitations. For example, the ARIMA model cannot accurately predict long-term prices and analyze nonlinear financial time series, namely fluctuation effects \cite{4}. Secondly, machine learning was first proposed and applied in financial time series analysis by Arthur Samuel in 1959. At present, common models involve SVR, SVM, ANN, and random forest. Machine learning algorithms optimize the forecast, however, can cause overfitting \cite{5}. Especially, the GARCH-BP model combines the advantages of the above two methods. The accuracy of forecasts is improved significantly, but it has no ordinary characteristic and cannot be widely applied \cite{6}. Thirdly, deep learning represented by CNN, and LSTM has broad application prospects.
+
+\subsection{Problem Restatement}
+We are given the daily prices of gold and bitcoin from September 11, 2016, to September 10, 2021. With \textbf{previous price data}, we predict future price trends and determine trading strategy daily. To gain the maximum total return over five years, we require to 
+\begin{itemize}
+\item create a model which provides the most optimal daily trading strategy based on previous price data.
+\item determine the total cash (all gold and bitcoin are transferred to cash) we hold after a five-year investment using 1000 dollars.
+\item prove that the strategy we offer is the most optimal.
+\item explore the influence of transaction costs variation on the strategy.
+\item tell our models, strategy, and results to the trader in the form of a memorandum.
+\end{itemize}
+
+\subsection{Overview of Our Work}
+The workflow of this paper is shown in Figure \ref{F11}.
+\begin{figure}[htb]
+ \centering
+ \includegraphics[width=15cm]{The workflow of this paper.png}
+ \caption{The workflow of this paper}
+ \label{F11} % Figure顺序
+\end{figure}
+
+\section{Assumptions and Justifications}
+To simplify the problems, we make basic assumptions, each of which is given proper justification.
+\begin{itemize}
+\item The trader knows the date that the gold trading market is open.
+\item \textbf{The purchase price and trading value of both gold and bitcoin are the closing price for the day.} Because the closing price is the price that market participants agree on, no matter how volatile the price is during that day.
+\item \textbf{The trader is risk-averse.} He chooses the assets portfolio with lower risk when all assets portfolios have equal returns. This increases the probability of obtaining the maximum return.
+\end{itemize}
+
+\section{Notations Description}
+The primary notations are listed in Table \ref{T1}.
+\begin{table}[h]
+ \centering
+ \caption{Notations} % Table顺序
+ \label{T1}
+ \begin{tabular}{ccc}
+  \toprule
+  \textbf{Symbols} & \textbf{Description} & \textbf{Unit}\\
+  \midrule
+  $X_t$ & the portfolio of assets in the $t^{th}$ day & - \\
+  $C_t$ & the held cash in the $t^{th}$ day & dollar(s) \\
+  $G_t$ & the held gold in the $t^{th}$ day & troy ounce(s) \\
+  $B_t$ & the held bitcoin in the $t^{th}$ day & bitcoin(s) \\
+  $MA(t)$ & 6-day moving average & - \\
+  $MACD$ & moving average convergence divergence & -\\
+  $RSI(t)$ & t-days relative strength index & -\\
+  $W\%R$ & Willianm index & -\\
+  $ROC(t)$ & t-days price rate of change & -\\
+  $LEN_{pre}$ & the length of the predictive window & day(s)\\
+  $LEN_{tra}$ & the length of the training window $i$ & day(s)\\
+  $Step$ & the  step length of the window slide & day(s)\\
+  $MSE$ & the indicator that trains the loss function & -\\
+  $\mu$ & the maximum rate of returnn & -\\
+  $\sigma^2$ & the trading risk & -\\
+  $F(W_{gold}, W_{bitcoin})$ & the conprehensive trading indicator & -\\
+  $(W_{gold}, W_{bitcoin})$ & the asset portolio & -\\
+  $TH_{comp}$ & the compare thrshold & -\\ 
+  $TH_{return}$ & the return thrshold & -\\
+  $TH_{risk}$ & the risk thrshold & -\\
+  \bottomrule
+ \end{tabular}
+\end{table}
+
+\section{Price Trends Prediction Model}
+\subsection{The Basic Process}
+To predict prices, we analyze the financial time series. Financial time series is susceptible to various factors, such as politics, economy, investor psychology, etc. Therefore, it is a complex time series with significant non-stationary characteristics. Deep neural networks have a strong ability to deal with these non-stationary characteristics \cite{7}. Therefore, we apply \textbf{Long-Short Term Memory}(LSTM) to predict gold and bitcoin prices respectively.
+
+Since price changes are rapid and complicated, single-point prediction provides single information, which is limited to making decisions. Therefore, we predict price trends using the past stream of daily prices by multi-step prediction. There are two methods of multi-step prediction.
+\begin{itemize}
+\item online learning: incrementally learn the latest additions to the data.
+\item sliding window learning: learn the historical data in the adjacent sliding windows before each forecast.
+\end{itemize}
+For the first method, since the prices change rapidly, the present price learning pattern is different from the previous one. The accuracy of prediction is reduced. Therefore, we adopt the second method, \textbf{sliding window learning} to predict the trends of price changes.
+
+To construct the dataset $D$ based on the time series, a sliding window with length $LEN_{tra} + LEN_{pre}$ is created. $LEN_{tra}$ corresponds to the input value of $X$ and $LEN_{pre}$ is the standard value that verifies output values. Actually, the trader does not trade every day over the five-year investment period. Therefore, the window slides backward in $Step$ step length after each trade, meaning that we trade every $Step$ days. Then we use the price data for this trading day and before to predict the price during the next window. The basic process of the sliding window is shown in Figure \ref{F4}.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=10cm]{The Basic Process of the Model.png}
+\caption{The Basic Process of the Silding Window}
+\label{F4} % Figure顺序
+\end{figure}
+
+\subsection{Data Pre-processing and Analysis}
+\subsubsection{Noise Processing}
+There are 10 missing values in the second column \emph{USD(PM)} of the dataset “LBMA\_GOLD”. These missing may be caused by the stock suspension. We use \textbf{linear interpolation} to complete the dataset.
+
+If our model focuses on the fitting of noise data during the training process, then the generalization and prediction ability on the gold and bitcoin prices time series are reduced \cite{7}. \textbf{Wavelet transform} not only effectively eliminates the noise in the financial time series, but also sufficiently retains the original characteristics. Therefore, we apply wavelet transform to denoise, thereby improving the fitting accuracy of our model. We consider  \textbf{Daubechies8} as wavelet basis and consider \textbf{Minimax} as threshold \cite{8}. We show the denoise results of gold and bitcoin daily prices time series in Figure \ref{F1} respectively. From 1500 to 1750 seconds, there are relatively large fluctuations. Correspondingly, the noise is relatively obvious.
+\begin{figure}[hbt]
+ \centering
+ \subfloat[The noise reduction of gold
+  ]{\includegraphics[width=7cm]{wavelet transform2.png}}\quad
+ \subfloat[The noise reduction of bitcoin
+  ]{\includegraphics[width=7cm]{wavelet transform1.png}}
+ \caption{The noise reduction}
+ \label{F1} % Figure顺序
+\end{figure}
+
+\subsubsection{Data Normalization}
+Normalization plays an important role in the optimal performance of deep learning algorithms. Therefore, for the time series $x_1, x_2, \dots, x_t$, its min-max normalization is
+\begin{equation*}
+x'=\frac{x-\text{min}(x)}{\text{max}(x)-\text{min}(x)}
+\end{equation*}
+\subsubsection{Feature Extraction}
+Based on the gold and bitcoin daily price time series, we extract 5 date features and 5 economic features for each of them and list them in Table \ref{T3}.
+\begin{itemize}
+\item Date features\\
+We extract the year, month, and day of the week from the date information. Considering that holidays affect trade, we propose two related indicators, the last workday, and the first workday.
+\item Economic features\\
+We select $MA$, $MACD$, $RSI$, $W\%R$, and $ROC$, which are commonly used by individuals and institutional investors for analysis \cite{9}.  $MA$, and $MACD$ are linear indicators. $RSI$, $W\%R$, and $ROC$ are indicators of overbought and oversold.
+\end{itemize}
+\begin{table}[h]
+\centering
+\caption{Date features and economic features for daily price time series} 
+\label{T3}
+ \begin{tabular}{cl}
+\toprule\toprule
+\textbf{Features} & \textbf{Descriptions}\\
+\midrule
+\multicolumn{2}{c}{\textbf{Date Features}}\\
+\midrule
+year & range $\left[2016, 2021\right]$ and adopt one\-hot encoding\\
+\rowcolor{grey!50}month & range $\left[1, 12\right]$ and adopt one\-hot encoding\\
+the day of week & range $\left[1, 7\right]$ and adopt one\-hot encoding\\
+\rowcolor{grey!50}the last day of workday & the day before holiday\\
+the first day of workday & the day after holiday\\
+\midrule
+\multicolumn{2}{c}{\textbf{Economic Features}}\\
+\midrule
+$MA$ & \begin{tabular}[l]{@{}l@{}}
+\textbf{Moving Average}\\$MA(t)=\frac{close_1+\cdots+close_t}{t}$ with $i=1, \dots, t$\\where $close_i$ is the closing prices in $i^{th}$ trading day.
+\end{tabular}\\
+\rowcolor{grey!50}$MACD$ & \textbf{Moving Average Convergence Divergence}\\
+$RSI$ & \begin{tabular}[l]{@{}l@{}}
+\textbf{Relative Strength Index}\\During $t$ trading day, $RSI(t)=100-\frac{100}{1+RS}$\\where $RS$ is relative strength.
+\end{tabular}\\
+\rowcolor{grey!50}$W\%R$ & \begin{tabular}[l]{@{}l@{}}
+\textbf{Larry Williams} proposed\\$W\%R(t)=\frac{high_t-close}{high_t-low_t}$\\where $high_t$ and $low_t$ are the highest and lowest closing\\ price during $t$ trading day, and $close$ is today's closing price.
+\end{tabular}\\
+$ROC$ & \begin{tabular}[l]{@{}l@{}}
+\textbf{Price Rate of Change}\\During $t$ trading day, $ROC=\frac{close_t-close_1}{close_t}$.
+\end{tabular}\\
+\bottomrule\bottomrule
+ \end{tabular}
+\end{table}
+
+In the process of calculation, we set the fast line period as 12 days and the slow line period as 26 days. The deviation of the line period of the moving average is 9 days
+\subsubsection{Dataset Partitioning}
+The Pearson correlation coefficient of gold and bitcoin price time series is 0.649 which is less than 0.75. This means that the correlation between gold and bitcoin prices is not significant. Predicting their prices at the same time may result in mutual interference, therefore, we make predictions of them respectively.
+
+Since the dataset is large, the training speed of the LSTM model is slow, and K-fold cross-validation takes a long time adjusting hyperparameters, we divide our dataset into three parts. As shown in Figure \ref{F2}, we set the first three years as a training set, the fourth year as a cross-validation set, and the last year as a testing set. If the critical date of the set is a closed market, we adjust the critical date to the nearest open market date. The training set is applied for adjusting hyperparameters and fitting, the cross-validation set is applied to test the performance of adjusting hyperparameters, and the testing set is used to evaluate the generalization ability of the model.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=10cm]{dataset partitioning.png}
+\caption{Dataset partitioning}
+\label{F2} % Figure顺序
+\end{figure}
+
+\subsection{The Construction and Training}
+\subsubsection{The Principle of LSTM}
+LSTM was first proposed to modify RNN by Hochreiter and Schmidhuber in 1997 and later became popular especially to tackle time series prediction problems \cite{10}. LSTM solves the issue of figuring out how to recollect data over a period of time, by presenting gate units and memory cells in the neural network design. The memory cells have cell states, which store recently experienced data. Each moment a memory cell receives the information, the output is controlled by the combination of cell states. The cell state is then refreshed. If the memory cell receives any other information, the output is processed utilizing both this new information, and the refreshed cell state \cite{11}. It is obvious that LSTM matches our requirement that recollecting the previous price data and updating the present price for a long period.
+
+The execution of LSTM is summarized as follows.
+\begin{itemize}
+\item[Step 1] The forget gate $f_t$, with the bias $b_f$, input weight $W_f$ and weight $U_f$ determine whether remove information from the memory cell or not.
+\begin{equation*}
+f_t=\sigma(b_f+W_fx_t+U_fh_{t-1})
+\end{equation*} 
+where $x_t$ is the current input vector, $h_t$ is the current hidden layer vector, and $\sigma$ is the sigmoid activation function. The value of  the information flow weight is between 0 and 1.  0 means that the information is completely deleted, while 1 means that all information is retained.
+\item[Step 2] The external input gate $g_t$ between 0 and 1 controlled by $\sigma$ is
+\begin{equation*}
+g_t=\sigma(b_g+W_gx_t+U_gh_{t-1})
+\end{equation*} 
+The information status of the memory cells is updated. The updated cell status $C_t$ based on $C_{t-1}$ is
+\begin{equation*}
+C_t=f_t\times C_{t-1}+g_t\tanh(b_c+W_cx_t+U_ch_{t-1})
+\end{equation*} 
+\item[Step 3] Similarly, the output gate $o_t$ is $o_t=\sigma(b_o+W_ox_t+U_oh_{t-1})$. The output information controlled by output gate $o_t$ is
+\begin{equation*} 
+h_t=o_t \times\tanh(C_t)
+\end{equation*}  
+\end{itemize} 
+\subsubsection{The Construction and Training of LSTM}
+We use Keras as the deep learning framework, apply TensorFlow backend to build neural network, and adopt $MSE$ shown below to train the loss function.
+\begin{equation*}
+MSE=(y, \widehat{y})=\frac{\sum^{n}_{i=1}(y-\widehat{y})^2}{n}
+\end{equation*} 
+In the LSTM layer, we use the default glorot\_uniform in Keras to initialize weight. Additionally, the default parameters in the optimizer of the backpropagation algorithm are used and other parameters are adjusted by cross-validation and grid search.
+
+To ensure the flexibility of our model, the deep neural network adds random operations, such as random initialization and random gradient descent. This leads to different results through training the same model using the same data, thereby the instability of the model. To derive a robust model, we consider the average $MSE$ of five repeated training as criteria for selecting parameters. 
+
+The number of memory cells in LSTM layer is adjusted in range [16, 32, 64, 128, 256] and activation function is selected in [ReLu, Linear,Sigmoid,Tanh]. Finally, \textbf{256 memory cells} using \textbf{ReLu} perform best. On this basis, the predictive effect on the cross-verification set is not significantly improved after adding fully connected layers. Therefore, the structure of the neural network is determined as Figure \ref{F5}.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=13cm]{the structure of the neural network.png}
+\caption{The structure of the neural network}
+\label{F5} % Figure顺序
+\end{figure}
+The optimizer in the backpropagation algorithm uses \textbf{Adam and default parameters} that learning\_rate=0.001, beta\_1=0.9, beta\_2=0.999, and amsgrad=False. \textbf{32 Batch\_size} perform best after training in range[32, 64, 128, 256]. According to the training curve, there is no obvious overfitting. Therefore, regularization parameters all use default parameters and do not use dropout.
+
+\subsubsection{Sliding Window}
+\begin{itemize}
+\item \textbf{$LEN_{pre}$}\\
+Large $LEN_{pre}$ reduces the accuracy of prediction while small $LEN_{pre}$ does not reflect future trends. Additionally, since gold is a special currency and has smaller volatility, it is a good long-term investment. While the market of bitcoin fluctuates dramatically, it is proper for short-term investment. Therefore, we set $LEN_{pre}=10$ days for gold and $LEN_{pre}=5$ days for bitcoin to balance. 
+\item \textbf{$LEN_{tra}$}\\
+Due to constant changes in trading patterns, trading patterns learning from earlier time series may cause a great error. Therefore, appropriate $LEN_{tra}$ improves the accuracy of prediction. Let the range of $LEN_{tra}$ be one to times as longer as $LEN_{pre}$. After training, cross-verification set perform best when $LEN_{tra}$ is three times as longer as $LEN_{pre}$.
+\end{itemize}
+
+The training process is visualized in Figure \ref{F6}. The loss of the training set and cross-validation set is small, and the loss between them is small. There are no underfitting and overfitting, indicating that the training and fitting contribute to predicting prices.
+\begin{figure}[htb]
+\centering
+\includegraphics[width=15cm]{The training process of LSTM.png}
+\caption{The training process of LSTM}
+\label{F6} % Figure顺序
+\end{figure}
+
+\section{Trading Strategy Model}
+In economics, Sharpe Ratio is an index that reflects the excess return by taking a unit of risk. The higher the index is, the more excess returns a strategy obtain under the same risk \cite{12}. At the moment we trade, we cannot foreknow the price trends. Similarly, our Price Trends Prediction Model cannot provide definitely accurate price trends. Therefore, we make the fourth assumption that the trader is risk-averse and establish the Trade Decision Model adding return and risk to maximize long-term total return.
+\subsection{Trading Indicators}
+To help the strategy-making, we propose three trading indicators related to return and risk.
+\subsubsection{The Maximum Rate of Return}
+The maximum net profit after unlimited trades using unit cash during $N$ days. The maximum rate of return for gold is $\mu_1$ and the maximum rate of return for bitcoin is $\mu_2$.
+
+According to our Price Trends Prediction Model, we predict gold prices for the next ten days and bitcoin prices for the next five days, respectively. Starting with the trading day, we use \textbf{dynamic programming} to acquire the maximum rate of return for gold and bitcoin in the next five days, respectively. When acquiring the maximum rate of return for gold, we delete the date that the gold market is closing. 
+
+\textbf{Construction:} We use gold as a representative to introduce the calculation process.\\
+Define state: dp$[i][1]$, with $i=1,2, \dots, 11$, donates the total market prices of the held assets portfolio after trading in the $i^{th}$ day. dp$[i][2]$, with $i=1,2, \dots, 11$, donates the maximum return of the held gold.\\
+Dynamic transition equations: 
+\begin{equation*}
+\text{dp}[i][1]=\max\{\text{dp}[i-1][1], \text{dp}[i-1][2]\frac{Price_{gold}[i]}{Price_{gold}[i-1]}(1-\alpha)\}
+\end{equation*}
+\begin{equation*}
+\text{dp}[i][2]=\max\{\text{dp}[i-1][2]\frac{Price_{gold}[i]}{Price_{gold}[i-1]}, \text{dp}[i-1][1](1-\alpha)\}
+\end{equation*}
+\begin{equation*}
+\text{dp}[1][1]=\text{dp}[0][1]=C_{gold}
+\end{equation*}
+\begin{equation*}
+\text{dp}[1][2]=\text{dp}[0][1](1-\alpha)=(1-\alpha)C_{gold}
+\end{equation*}
+According to the result of dynamic programming array, the maximum rate of return for gold is
+\begin{equation*}
+\mu_1=\frac{(dp[11][1]-C_{gold})}{C_{gold}}
+\end{equation*}
+where $C_{gold}$ is the cash that used to purchase gold.
+ 
+\subsubsection{The Trading Risk}
+The daliy rate of return is $\mu_t=\frac{Price_t-Price_{t-1}}{Price_{t-1}}$, then $\sigma_1$ is the variance of daliy rate of return for gold and $\sigma_2$ is the variance of daliy rate of return for bitcoin. We apply the variances of gold and bitcoin portfolios to define the trading risk \cite{9}, namely
+\begin{equation*}
+{\sigma}^2={W_{gold}}^2 {\sigma_1}^2+ {W_{bitcoin}}^2 {\sigma_2}^2+2 W_{gold} W_{bitcoin}COV_{gold, bitcoin}
+\end{equation*}
+where $W_{gold}$ and $W_{bitcoin}$ are respective proportions of gold and bitcoin in the portfolio. Addiditionally, $COV_{gold, bitcoin}= \rho_{12}\sigma_1\sigma_2$, with the correlation coefficient between the daily rate of return for gold and bitcoin $\rho_{12}$, is the covariance of gold and bitcoin, reflecting the interaction between rate of return for gold and rate of return for bitcoin.
+
+\subsubsection{The Comprehensive Trading Indicator}
+Inspired by Sharpe Ratio and modern portfolio theory \cite{9, 12}, we propose a comprehensive trading indicator:
+\begin{equation*}
+F(W_{gold}, W_{bitcoin})=\frac{W_{gold}\mu_1+W_{bitcoin}\mu_2}{\sigma}.
+\end{equation*}
+
+\subsection{Four-quadrant Strategy by Trading Indicators}
+We define the quadrantal diagram as shown in Figure \ref{F9}. The farther the position is from the origin, the greater either the loss or the return is. The range for $\mu$ is $[0, +\infty)$. $\mu=0$ indicates loss while $\mu>0$ indicates return. Noted that we always purchase assets after selling assets. Additionally, we define that the total market price of the held gold is $HG$ and the total market price of the held bitcoin is $HB$, $\Delta G$ and $\Delta H$ are gold and bitcoin that require to be traded respectively. Then calculate $\Delta G$ and $\Delta D$ by $\frac{HG-\Delta G}{HB+\Delta B}=\frac{W_{gold}}{W_{bitcoin}}$.
+\begin{figure}[hbt]
+ \centering
+ \includegraphics[width=13cm]{The four-quadrant strategy.png}
+ \caption{The four-quadrant strategy}
+ \label{F9} % Figure顺序
+\end{figure}
+
+\noindent
+\textbf{The First Quadrant}
+
+If both $\mu_1>0$ and $\mu_2>0$, then the future prices for both gold and bitcoin increase. We purchase them to gain returns. We consider the transaction costs when calculating $\mu$, therefore, $\mu>0$ represents the return. The proportion of gold and bitcoin purchasing is determined based on how much they are profitable respectively. According to the comprehensive trading indicator, we determine the optimal assets portfolio for purchase that is
+\begin{equation*}
+{(W_{gold}, W_{bitcoin})}_{best}=\mathop{\arg\max}\limits_{W_{gold}+W_{bitcoin}=1}F(W_{gold}, W_{bitcoin}).
+\end{equation*}
+This purchasing strategy helps us obtain more excess returns under the same risk.
+\begin{itemize}
+\item If the cash we hold can achieve this assets portfolio, then we directly execute this purchasing strategy.
+\item If not, we define a compare threshold $TH_{comp}$.
+ \begin{itemize}
+ \item[a] If $\frac{\mu_2}{\mu_1}>TH_{comp}$, then we sell $\mu_1$ to purchase $\mu_2$.\\
+If $0<\Delta G<HG$, we sell $\Delta G$ gold. If $\Delta G>HG$, we sell all $G$ gold.  
+ \item[b] If $\frac{\mu_2}{\mu_1}<TH_{comp}$, then we sell $\mu_2$ to purchase $\mu_1$.\\ 
+If $0<\Delta B<HB$, we sell $\Delta B$ bitcoin. If $\Delta B>HB$, we sell all $B$ bitcoin.  
+ \item[c] If $\frac{\mu_2}{\mu_1}=TH_{comp}$, then we hold them.
+ \end{itemize}
+\end{itemize}
+
+\noindent
+\textbf{The Second Quadrant}
+
+If $\mu_1=0$ and $\mu_2>0$, then the future prices for gold decrease while the prices for bitcoin increase.
+\begin{itemize}
+\item Gold\\
+We assume that the maximum loss is $maxL=Price_{first}-Price_{last}$, where $Price_{first}$ is the closing price on the first day of the predictive period and $Price_{last}$ is the closing price on the last day.\\
+If $HG\times \alpha_{gold}\geq maxL$, then this decline is not significant and prices might grow later. Reduced losses by selling gold are less than the transaction costs. Therefore, We remain holding gold.\\
+If $HG\times \alpha_{gold}<maxL$, then this decline is significant. We sell all the gold.
+\item Bitcoin\\
+We consider the transaction costs when calculating $\mu$, therefore, $\mu>0$ represents gaining returns. We propose a return threshold $TH_{return}$ and risk threshold $TH_{risk}$. If $\mu_2>TH_{return}$ and $\sigma_2<TH_{risk}$, then we spend all cash on bitcoin.
+\end{itemize}
+
+\noindent
+\textbf{The Third Quadrant}
+
+The strategy for the third quadrant is inverse to the second quadrant.
+
+\noindent
+\textbf{The Fourth Quadrant}
+
+If both $\mu_1=0$ and $\mu_2=0$, then the future prices for both gold and bitcoin decrease. We treat both of them as \emph{gold} in the second quadrant.
+
+\section{Model Application}
+\subsection{Optimizer}
+During the process of constructing our models, we do not consider the \$1000 principal. After considering these principles, we apply and optimize our model to gain the maximum total return and provide a trading strategy.
+
+In the first model, the Price Trend Prediction Model, we mainly use the LSTM model. However, in the first six months, seldom can data be used to train the LSTM model, thereby the prediction is inaccurate. As time goes on, increasing the training set improves the accuracy of prediction. Therefore, our initial trading strategy tends to be conservative, with $TH_{return}=0.08$ and $TH_{risk}=0.003$. This means that we buy assets if their rate of return is larger than 0.08 and their trading risk is low. When the return of one asset is more than five times of another, namely $TH_{comp}=5$, we sell one asset to buy another. For each additional year (the second year starts on September 12, 2017), $TH_{return}$ decreases by 0.01 compared with the previous year, $TH_{risk}$ increases by 0.001 compared with the previous year, and $TH_{comp}$ decreases by 0.5 compared with the previous year.
+
+In practice, trade is not made every day, so we set $Step=6$. That is to say that a strategy is made every 6 days. In the case of the gold closing market, the strategy is proposed one day later. Additionally, gold has a predictive step of 10 days, including days of closing market and bitcoin has a predictive step of 5 days.
+
+\subsection{Results}
+The following Figure \ref{F7} is the maximum rate of return for gold and bitcoin, respectively.
+\begin{figure}[hbt]
+ \centering
+ \subfloat[The maximum rate of return for gold
+  ]{\includegraphics[width=7cm]{Maximum rate of return for gold.png}}\quad
+ \subfloat[The maximum rate of return for bitcoin
+  ]{\includegraphics[width=7cm]{Maximum rate of return for bitcoin.png}}
+ \caption{The maximum rate of return}
+ \label{F7} % Figure顺序
+\end{figure}
+Figure \ref{F12} incicates that bitcoin and cash we hold, based on our models and strategies. In Figure \ref{F12}(a), the cash we hold increase about 1.57 times from April 24, 2019 to April 3 ,2020. In Figure \ref{F12}(b), the bitcoin we hold increase around 6.41 times from March 1, 2020 to February 15, 2021.
+\begin{figure}[hbt]
+ \centering
+ \subfloat[The bitcoin we hold every day
+  ]{\includegraphics[width=7cm]{The bitcoin we hold every day.png}}\quad
+ \subfloat[The cash we hold every day
+  ]{\includegraphics[width=7cm]{The cash we hold every day.png}}
+ \caption{The assets we hold every day}
+ \label{F12} % Figure顺序
+\end{figure}
+Every day, we convert gold and bitcoin into cash at the closing price minus transaction costs, then obtain the market value of the total assets we hold shown in Figure \ref{F13}. With reasonable strategies, our assets rise rapidly from 2019 to 2021 as the prices of bitcoin rise sharply. As of September 10, 2021, the market value of our total assets is 48,534,624.13576116 dollars.
+\begin{figure}
+ \centering
+ \includegraphics[width=13cm]{The market value of total assets.png}
+ \caption{The market value of total assets}
+ \label{F13} % Figure顺序
+\end{figure}
+
+\section{Model Test}
+\subsection{Test of the Price Trends Prediction Model}
+The test of the price trends for gold and bitcoin is shown in Figure \ref{F8} and the average $MSE$ of five repeated training is recorded in Table \ref{T4}. In the training set, our model predicts the daily prices accurately. $R_2$ is above 0.90 in 5 repeated training. Additionally, although the prediction of the multiday prices is slightly inaccurate, predicted price trends reflect the actual trends. Especially, the price trends of bitcoin are almost the same as the actual ones. $R_2$ is above 0.84 in 5 repeated training. Considering that the prices of assets are affected by various factors, predicting prices accurately is difficult in economics. Our model predicts the price trends accurately, contributing to making trading strategies.
+\begin{figure}[hbt]
+ \centering
+ \subfloat[The test of the price trend for gold
+  ]{\includegraphics[width=13cm]{The test of the price trend for gold.png}}\quad
+ \subfloat[The test of the price trend for bitcoin
+  ]{\includegraphics[width=13cm]{The test of the price trend for bitcoin.png}}
+ \caption{The test of the Price Trend Prediction model}
+ \label{F8} % Figure顺序
+\end{figure}
+\begin{table}[h]
+ \centering
+ \caption{Variables in sliding window learning} % Table顺序 %%%大小
+ \label{T4}
+ \setlength{\tabcolsep}{2.5mm}
+ \begin{tabular}{cccc}
+ \toprule
+ \textbf{$MSE$} & \textbf{The training set} & \textbf{The cross-validation set} & \textbf{The test set}\\
+ \midrule
+ \begin{tabular}[lc]{@{}c@{}}
+Gold prices\\daily prediction
+\end{tabular} & 0.0017 & 0.0023 & 0.0025 \\
+\rowcolor{grey!50} \begin{tabular}[lc]{@{}c@{}}
+Bitcoin prices\\daily prediction
+\end{tabular} & 0.0016 & 0.0018 & 0.0030 \\
+ \begin{tabular}[lc]{@{}c@{}}
+Gold prices\\10-day prediction
+\end{tabular} & 0.0017 & 0.0023 & 0.0028 \\
+\rowcolor{grey!50} \begin{tabular}[lc]{@{}c@{}}
+\rowcolor{grey!50}Bitcoin prices\\5-day prediction
+\end{tabular} & 0.0018 & 0.0021 & 0.0035 \\
+ \bottomrule
+ \end{tabular}
+\end{table}
+
+\subsection{Proof of the Rationality}
+To acquire the long-term maximum return, we need to know the long-term price trends and increase predictive steps. This change reduces the accuracy of the prediction and current methods cannot improve the accuracy. Therefore, we adopt a greedy method to predict short-term price trends and use dynamic programming to calculate the maximum rate of return in short term. However, each short-term prediction is likely to generate errors. Although we obtain the maximum return in each term, the accumulation of them might not generate the long-term maximum return. To optimize our model, we add the evaluation of risk and define three thresholds to determine whether our strategy is radical or conservative. Since two assets are traded, the rate of return and risk for each of them are considered. When one of them has the risk of loss in the future, we sell it. When both of them are profitable, we comprehensively consider return and risk for their portfolio, to formulate the optimal purchase portfolio.
+
+\subsection{Test in Reality} 
+There are four typical stock tendencies, including basic stability, fluctuation, increase, and decrease \cite{13}. Part of the price trends of gold and bitcoin is in line with one or more of the above tendencies. The following Figure \ref{F21} shows typical price trends in gold and bitcoin.
+\begin{figure}[hbt]
+ \centering
+ \includegraphics[width=13cm]{Test in Reality.png}
+ \caption{The test in reality}
+ \label{F21} % Figure顺序
+\end{figure}
+
+In Figure \ref{F21}(a), the price trends of gold fluctuate while the price trends of bitcoin stably increase. The price trends we predict are accurate. On September 12, 2020, we only hold 359.07 bitcoins which is worth 3709512.74 dollars. From then on, our model gives strategies to buy gold at wave trough, sell gold at wave crest, and hold bitcoin. Then on October 14, 2020, we hold 28.93 bitcoins and 3755511.13 dollars of cash. The total value of them is 4086185.51 dollars. 
+
+In Figure \ref{F21}(b), the price trends of gold stably decrease while the price trends of bitcoin fluctuate but increase. On December 16, 2020, we hold 155.31 troy ounces of gold and 398.67 bitcoins. The total value of them is 8037686.57 dollars. Our models point out the rate of return for bitcoin is much larger than $TH_{return}$, instructing us to sell all gold to buy bitcoin. After 6 trades shown in Table \ref{T5}, we made a great return and only hold 425.22 bitcoins which is worth 15220206.55 dollars on January 18, 2020. Due to the decrease in bitcoin prices, our assets depreciate from January 11 to January 18. This depreciation is caused by the step length of the sliding window. The length of the predictive window for bitcoin is 5 days while the step length of the window slide is 6 days. Unluckily, the price of bitcoin decreases on the sixth day. However, this phenomenon is a type of error, which is caused by simplifying calculations. There is no error in our principle of trading strategy model. From December 16, 2020, to January 18, 2021, large training data result in a radical strategy. Three thresholds are $TH_{return}=0.05$, $TH_{risk}=0.006$, and $TH_{comp}=3.5$.
+\begin{table}[h]
+ \centering
+ \caption{Six trades from December 16, 2020 to January 18, 2021} % Table顺序
+ \label{T5}
+ \setlength{\tabcolsep}{1.8mm}
+ \begin{tabular}{ccccccc}
+  \toprule
+  \textbf{Date} & \textbf{Dec. 16} & \textbf{Dec. 22} & \textbf{Dec. 29} & \textbf{Jan. 4} & \textbf{Jan. 11} & \textbf{Jan. 18}\\
+  \midrule
+  predicted $\mu_1$ & 0.003 & 0 & 0.001 & 0.004 & 0\\
+  actual $\mu_1$ & 0.005 & 0 & 0.02 & 0.005 & 0 & 0.005\\
+  predicted $\mu_2$ & 0.079 & 0.072 & 0.089 & 0.052 & 0.012 & 0.001\\
+  actual $\mu_2$ & 0.179 & 0.069 & 0.053 & 0.158 & 0.026 & 0.004\\
+  $(W_{gold}, W_{bitcoin})$ & 0 & - & - & 0 & 0 & -\\
+  \begin{tabular}[lc]{@{}c@{}}
+trading\\strategy 
+\end{tabular} & \begin{tabular}[lc]{@{}c@{}}
+sell all\\gold\\to buy\\bitcoin 
+\end{tabular}& \begin{tabular}[c]{@{}c@{}}
+no trade,\\only hold\\bitcoin
+\end{tabular}&
+\begin{tabular}[c]{@{}c@{}}
+no trade,\\only hold\\bitcoin
+\end{tabular}&\begin{tabular}[c]{@{}c@{}}
+no trade,\\only hold\\bitcoin
+\end{tabular} &\begin{tabular}[c]{@{}c@{}}
+ no trade,\\only hold\\bitcoin 
+\end{tabular}&\begin{tabular}[c]{@{}c@{}}
+ no trade,\\only hold\\bitcoin
+\end{tabular}\\ 
+  total value & 8037687 & 9672025 & 11496770 & 14032871 & 16260775 & 15220207\\
+  \bottomrule
+ \end{tabular}
+\end{table}
+
+In Figure \ref{F21}(c), the price trends of gold are stable while the price trends of bitcoin fluctuate but decrease. We only hold 28700039.67 dollars of cash on May 10, 2021. On June 14, 2021, we only hold 30959184.83 dollars of cash. During this period, we hold small amounts of gold and bitcoin for a partial time.
+
+These tests prove that our Trading Strategy Model not only makes accurate strategies under these tendencies but also maximizes return and minimizes loss. 
+
+\section{Sensitivity Analysis}
+Firstly, we explore how transaction costs affect our results, namely the total return. In Figure \ref{F15}, the total return varies as the transaction costs change, indicating that our models are sensitive to transaction costs. In the cash-$\alpha_{bitcoin}$ plane, the curve is steeper. Therefore, our models are sensitive to the transaction cost of bitcoin.
+\begin{figure}[hbt]
+ \centering
+ \includegraphics[width=13cm]{transaction costs and results.png}
+ \caption{The sensitivity analysis for transaction costs and results}
+ \label{F15} % Figure顺序
+\end{figure}
+
+Additionally, transaction costs affect our strategies. In the problem, the original transaction costs of gold and bitcoin are $\alpha_{gold}=1\%$ and $\alpha_{bitcoin}=2\%$, respectively. We first adjust two transaction costs in the same direction. As shown in Figure \ref{F16}(a), when both transaction costs are halved, gold and bitcoin are traded more frequently and their changing trends are similar. Secondly, we adjust two transaction costs in the opposite direction, namely exchange. In Figure \ref{F16}(b), trades with a lower transaction cost increase in frequency, while trades with a higher transaction cost decrease in frequency. Therefore, we infer that transaction costs influence the frequency of trade, thereby influencing strategies and the total return. These phenomena explain the reason that our models are more sensitive to the transaction cost of bitcoin. Compared with bitcoin, the prices of gold change more stably and the rate of return for gold is lower. The trading frequency of gold is lower in our models.
+\begin{figure}[hbt]
+ \centering
+ \subfloat[The adjustment in the same direction
+  ]{\includegraphics[width=13cm]{The adjustment in the same direction.png}}\quad
+ \subfloat[The adjustment in the opposite direction
+  ]{\includegraphics[width=13cm]{The adjustment in the opposite direction.png}}
+ \caption{The monthly trading frequency of gold and bitcoin}
+ \label{F16} % Figure顺序
+\end{figure}
+
+\section{Strengths and Weaknesses}
+\subsection{Strengths}
+\begin{itemize}
+\item We adopt the sliding time window to do multi-step time prediction instead of single-point prediction. This helps the trader develop a trading strategy combining the trends in price changes and the comprehensive evaluation of prices.
+\item When making the trading strategies, we not only evaluate gold and bitcoin respectively but also comprehensively analyze them. We consider and discuss various situations, and finally make the optimum strategy for each situation.
+\end{itemize}
+\subsection{Weaknesses}
+\begin{itemize}
+\item The prices of gold and bitcoin are affected by supply-demand relations, social environment,  political situation, military events, and other factors. Our model only considers the influence of previous prices.
+\item The step length of the sliding window is larger than one day, possibly resulting in missing out on the best investment time.
+\item Since the training data is less in the first six months, the accuracy of prediction is poor. Therefore, accurate price trends might not be predicted and a reasonable strategy might not be provided. However, we adjust three thresholds to address this in \emph{Model Application}. 
+\item Within a five-day predictive period, we combine dynamic programming and the four-quadrant strategy to obtain short-term optimum solutions. The accumulation of each short-term optimum solution might not generate the globally optimal solution. Since investment is a long-term process, long-term prediction is necessary but difficult that we cannot make.
+\end{itemize}
+
+\newpage
+\section{A Memorandum to the Trader}
+\noindent
+\textbf{To: }The trader\\
+\textbf{From: }Team 2209876\\
+\textbf{Date: }February 21, 2021\\
+\textbf{Subject: }Strategies of the maximum total return using 1,000 dollars.
+
+\noindent
+Dear,
+
+We are honored to inform you of our achievements. Given \$1000 principal, five-year price data, and five years, we maximize the total return. 
+
+Firstly, our models are briefly introduced.
+\begin{itemize}
+\item $\mathbcal{Price}$  $\mathbcal{Trends}$  $\mathbcal{Prediction}$  $\mathbcal{Model}$\\
+We apply the LSTM and sliding window to predict price trends. Since gold is proper for long-term investment, we predict the price trends of gold in 10 days. Bitcoin is an effective short-term investment, therefore, we predict the price trends of gold in 5 days.
+\item $\mathbcal{Trading}$ $\mathbcal{Strategy}$ $\mathbcal{Model}$\\
+Dynamic programming measures indicators related to the rate of return and risk based on predicted prices. We incorporate these indicators and predicted price trends to make strategies.
+\end{itemize}
+
+Next, based on different situations, our strategies are illustrated step by step.
+\begin{itemize}
+\item Our first model predicts that the price trends for both gold and bitcoin increase in the future. Our second model provides the optimal assets portfolio at present.\\
+If you have enough cash to realize this portfolio, then buy them directly.\\
+If not, sell partial of one asset then buy another asset to realize this portfolio, or sell all of one asset then buy another asset to approach this portfolio.
+\item Our first model predicts that the price trends for both gold and bitcoin decrease in the future.\\
+\textbf{Gold} If the transaction cost required to sell all holding gold is less than the loss on the holding gold, then sell all holding gold. If not, hold the current gold.\\
+\textbf{Bitcoin} If the transaction cost required to sell all holding bitcoin is less than the loss on the holding bitcoin, then sell all holding bitcoin. If not, hold the current bitcoin.
+\item Our first model predicts that the price trends for the gold increase while those for bitcoin decrease in the future.\\
+\textbf{Bitcoin} If the transaction cost required to sell all holding bitcoin is less than the loss on the holding bitcoin, then sell all holding bitcoin. If not, hold the current bitcoin.\\
+\textbf{Gold} If the return for gold is larger than the risk threshold and the risk for gold is less than the risk threshold, then buy gold using all holding cash. If not, hold the current gold.
+\item Our first model predicts that the price trends for gold decrease while those for bitcoin increase in the future.\\
+\textbf{Gold} If the transaction cost required to sell all holding gold is less than the loss on the holding gold, then sell all holding gold. If not, hold the current gold.\\
+\textbf{Bitcoin} If the return for bitcoin is larger than the risk threshold and the risk for bitcoin is less than the risk threshold, then buy bitcoin using all holding cash. If not, hold the current bitcoin.
+\end{itemize}
+
+Finally, based on our models and strategies, a thousand-dollar principal is worth 48,534,624.13576116 dollars on September 10, 2021.
+
+\hspace*{\fill}\\
+\rightline{Sincerely,}
+
+\rightline{Team \#2209876}
+
+%==========设置参考格式===================
+\newpage
+\begin{thebibliography}{99}
+\bibitem{1} Gan Ke. \emph{Analysis of Bitcoin Price Influencing Factors} [D]. 2021. Central China Normal University, MA thesis. 
+\bibitem{2} Zhao Chongzeng. \emph{Characteristic analysis and modeling of gold volatility} [D]. 2016. Hangzhou Dianzi University, MA thesis.
+\bibitem{3} Ye Wuyi, Sun Liping, and Miao Baiqi. "A Study of Dynamic Cointegration of Gold and Bitcoin-Based on Semiparametric MIDAS Quantile Regression Model. [J]" \emph{Systems Science and Mathematics} 40.07(2020): 1270-1285.
+\bibitem{4} Fei Jingwen. "Analysis and Forecast of Gold Futures Price Based on ARIMA model. [J]". \emph{Contemporary economics}. 09(2017):148-150.
+\bibitem{5} Ouyang Yulong. \emph{Predictive Research of Stock Market Based on Financial Time Series and Deep Learning} [D]. 2021. Jiangxi University of Finance and Economics, MA thesis.
+\bibitem{6} Zhang Pinyi, Luo Chunyan and Liang Si. "Gold Price Simulation Prediction Based on GA-BP Neural Network Model. [J]". \emph{Chinese Social Sciences Citation Index}. 34.17(2018): 158-161. doi:10.13546/j.cnki.tjyjc.2018.17.039.
+\bibitem{7} Yan H, Ouyang H. "Financial time series prediction based on deep learning [J]". \emph{Wireless Personal Communications}. 2018, 102(2): 683-700.
+\bibitem{8} Pang, Z. Y., and Liu, L. "Can agricultural product price fluctuation be stabilized by future market: Empirical study based on discrete wavelet transform and GARCH model [J]". \emph{Journal of Finance Research}. 2013, 11, 126-139.
+\bibitem{9} Cao Fengqi, Liu Li, and Yao Changhui. \emph{Security Investment}, 3rd ed., Beijing, China: Peking University Press, 2013.
+\bibitem{10} S. Hochreiter and J. Schmidhuber, "Long short-term memory", \emph{Neural computation}, vol. 9, no. 8, pp. 1735-1780, 1997.
+\bibitem{11} M. A. Istiake Sunny, M. M. S. Maswood and A. G. Alharbi, "Deep Learning-Based Stock Price Prediction Using LSTM and Bi-Directional LSTM Model," \emph{2020 2nd Novel Intelligent and Leading Emerging Sciences Conference (NILES)}, 2020, pp. 87-92, doi: 10.1109/NILES50944.2020.9257950.
+\bibitem{12} Lin Hongmei, Du Jinyan, Zhang Shaodong. "Sharpe Ratio: Estimation Method, Applicability and Empirical Analysis." \emph{Journal of Statisitc} 2.06(2021): 73-88. doi: 10.19820/j.cnki.issn2096-7411.2021.06.006.
+\bibitem{13} Li Xiaojie, et al. "Stock trend prediction method based on
+temporal hypergraph convolutional neural networks.[J/OL]" \emph{Computer application}: 1-7[2022-02-21]. http://kns.cnki.net/kcms/detail/51.1307.tp.20210806.1415.008.html.
+\end{thebibliography}
+
+\end{document}
+
+
